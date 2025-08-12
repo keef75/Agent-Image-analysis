@@ -351,7 +351,7 @@ Our federated approach successfully:
 
 ## 📞 Contact & Collaboration
 
-**Author**: Keith Lambert (@keef75)  
+**Author**: Keith Lambert (@keef75)  keith@gococoa.ai 
 **Research Interest**: AI Safety, Uncertainty Quantification, Human-AI Collaboration  
 **Open to**: Research collaborations, industrial applications, academic partnerships  
 
