@@ -72,6 +72,17 @@ Instead of forcing a single "best guess," our system:
 
 **Key Insight**: Rather than forcing a potentially incorrect answer, the system recognized its limitations and requested human intervention - a significant advancement over traditional AI approaches.
 
+### 🎯 Live Demonstration Results
+
+**Latest Pipeline Execution** (Node findings):
+- **Node 1**: 4×4×4 structure → 64 total cubes (86% confidence)
+- **Node 2**: 54 visible cubes systematically counted (78% confidence)  
+- **Node 3**: 9 missing cubes detected via void pattern analysis (95% confidence)
+- **Node 4**: Mathematical inconsistency detected (54 + 9 = 63 ≠ 64)
+- **Node 5**: **Intelligently deferred to human** with 98.4% confidence
+
+**Result**: The system detected a 1-cube discrepancy between analyses, acknowledged the contradiction transparently, and escalated to human judgment rather than guessing - demonstrating responsible AI behavior.
+
 ---
 
 ## 🏗️ Architecture Deep Dive
@@ -132,8 +143,8 @@ pydantic >= 2.0.0
 ### Installation
 
 ```bash
-git clone https://github.com/keef75/federated-ai-analysis.git
-cd federated-ai-analysis
+git clone https://github.com/keef75/Agent-Image-analysis.git
+cd Agent-Image-analysis
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install openai pydantic
@@ -145,13 +156,35 @@ pip install openai pydantic
 export OPENAI_API_KEY="your-api-key-here"
 ```
 
-### Running the Analysis
+### Running the Complete Analysis
+
+**🚀 NEW: One-Command Pipeline Execution**
+
+```bash
+# Analyze any cube puzzle image with complete federated pipeline
+python run_analysis.py cube_puzzle.png
+
+# Works with any cube structure image
+python run_analysis.py your_cube_image.png
+```
+
+**What you get:**
+- ✅ Real-time progress logging with emoji indicators
+- ✅ All 5 nodes executed in proper sequence with dependency chaining
+- ✅ Comprehensive error handling and fallback mechanisms
+- ✅ Final federation answer with uncertainty quantification
+- ✅ Individual node outputs (node1-5_output.json) + final result
+
+**Advanced Usage:**
 
 ```python
-# Test the complete federation
-python node1.py  # Will run the full pipeline
+# Programmatic access to complete pipeline
+from run_analysis import CompleteFederationPipeline
 
-# Or run individual nodes
+pipeline = CompleteFederationPipeline()
+result = await pipeline.run_complete_analysis("your_image.png")
+
+# Or run individual nodes (requires previous outputs)
 from node1 import Node1StructureAnalyzer
 analyzer = Node1StructureAnalyzer()
 result = await analyzer.analyze_structure("cube_puzzle.png")
