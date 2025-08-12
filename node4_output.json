@@ -2,40 +2,31 @@
   "analysis_type": "Cross-Verification Analysis",
   "consistency_checks": [
     {
-      "check_name": "Node 1 Arithmetic Consistency",
+      "check_name": "Node 1 Total Cubes Calculation",
       "description": "Verify if Node 1's claimed dimensions yield the claimed total cubes.",
       "passed": true,
-      "expected_value": 48,
-      "actual_value": 48,
+      "expected_value": 64,
+      "actual_value": 64,
       "discrepancy_magnitude": 0.0,
       "severity": "None"
     },
     {
-      "check_name": "Node 2 Arithmetic Consistency",
-      "description": "Verify if Node 2's visible + implied missing equals Node 1's total.",
+      "check_name": "Node 2 Total Cubes Calculation",
+      "description": "Verify if Node 2's visible + missing cubes equal Node 1's total.",
       "passed": false,
-      "expected_value": 48,
-      "actual_value": 13,
-      "discrepancy_magnitude": 35.0,
+      "expected_value": 64,
+      "actual_value": 54,
+      "discrepancy_magnitude": 10.0,
       "severity": "High"
     },
     {
-      "check_name": "Node 3 Arithmetic Consistency",
-      "description": "Verify if Node 3's visible + missing equals Node 1's total.",
+      "check_name": "Node 3 Total Cubes Calculation",
+      "description": "Verify if Node 3's implied total matches Node 1's total.",
       "passed": false,
-      "expected_value": 48,
-      "actual_value": 20,
-      "discrepancy_magnitude": 28.0,
-      "severity": "High"
-    },
-    {
-      "check_name": "Layer Pattern Geometric Possibility",
-      "description": "Check if the layer patterns provided by Node 2 are geometrically possible.",
-      "passed": true,
-      "expected_value": "Possible",
-      "actual_value": "Possible",
-      "discrepancy_magnitude": 0.0,
-      "severity": "None"
+      "expected_value": 64,
+      "actual_value": 63,
+      "discrepancy_magnitude": 1.0,
+      "severity": "Low"
     }
   ],
   "discrepancies": [
@@ -46,39 +37,38 @@
         "node2",
         "node3"
       ],
-      "description": "Node 1 claims 48 total cubes, while Node 2 and Node 3 imply 20 total cubes.",
+      "description": "Node 1 claims 64 cubes, while Node 2 and Node 3 imply 63 cubes.",
       "potential_causes": [
         "Misinterpretation of structure",
-        "Incorrect void pattern analysis",
-        "Systematic counting error"
+        "Counting error",
+        "Assumption differences"
       ],
-      "resolution_difficulty": "High"
+      "resolution_difficulty": "Moderate"
     },
     {
-      "discrepancy_type": "Mathematical Consistency Error",
+      "discrepancy_type": "Visible + Missing Discrepancy",
       "nodes_involved": [
-        "node2",
-        "node3"
+        "node2"
       ],
-      "description": "Visible + missing does not equal claimed total for Node 2 and Node 3.",
+      "description": "Node 2's visible + missing does not match Node 1's total.",
       "potential_causes": [
-        "Calculation error",
-        "Incorrect assumptions about missing cubes"
+        "Counting error",
+        "Layer miscalculation"
       ],
-      "resolution_difficulty": "Medium"
+      "resolution_difficulty": "High"
     }
   ],
   "mathematical_verification": {
     "total_theoretical_claims": {
-      "node1": 48,
-      "node2_plus_node3": 20
+      "node1": 64,
+      "node2_plus_node3": 63
     },
     "visible_cube_claims": {
-      "node2": 13
+      "node2": 54
     },
     "missing_cube_claims": {
-      "node3": 7,
-      "node1_implied": 35
+      "node3": 9,
+      "node1_implied": 10
     },
     "mathematical_consistency": {
       "node1_dimensions_math": true,
@@ -86,22 +76,22 @@
       "cross_node_agreement": false
     },
     "cross_node_consistency": {
-      "node1_vs_node23": "INCONSISTENT: 28 cube difference",
-      "overall": "MAJOR_CONTRADICTIONS"
+      "node1_vs_node23": "INCONSISTENT: 1 cube difference",
+      "overall": "MINOR_DIFFERENCES"
     }
   },
   "confidence_analysis": {
     "node_confidences": {
-      "node1": 0.95,
-      "node2": 0.58,
+      "node1": 0.86,
+      "node2": 0.78,
       "node3": 0.95
     },
-    "agreement_level": 0.41666666666666663,
-    "confidence_calibration": "POORLY_CALIBRATED: High confidence but low agreement",
-    "uncertainty_recommendation": "INCREASE_UNCERTAINTY: System should be much less confident"
+    "agreement_level": 0.984375,
+    "confidence_calibration": "REASONABLE: Confidence roughly matches agreement",
+    "uncertainty_recommendation": "MAINTAIN_CURRENT: Confidence levels seem appropriate"
   },
-  "overall_system_health": "CRITICAL",
-  "contradiction_severity": "Severe",
-  "recommended_action": "Defer to human judgment and conduct a detailed manual review of the structure. Consider additional objective verification methods such as 3D modeling or physical reconstruction.",
+  "overall_system_health": "CONCERNING",
+  "contradiction_severity": "Moderate",
+  "recommended_action": "Conduct a detailed manual review of the structure and counting methods to resolve discrepancies. Consider using a different verification method or deferring to human judgment.",
   "confidence_in_verification": 0.85
 }

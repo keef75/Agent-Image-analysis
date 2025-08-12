@@ -395,7 +395,7 @@ IMPORTANT: For nodes_involved, use string format like "node1", "node2", "node3" 
             
             # Call OpenAI API with structured output
             response = self.client.chat.completions.create(
-                model="gpt-4o",  # Using consistent model for verification
+                model="gpt-5",  # Using consistent model for verification
                 messages=[
                     {
                         "role": "user",
@@ -404,8 +404,7 @@ IMPORTANT: For nodes_involved, use string format like "node1", "node2", "node3" 
                         ]
                     }
                 ],
-                response_format={"type": "json_object"},
-                temperature=0.0  # Zero temperature for consistent verification
+                response_format={"type": "json_object"}
             )
             
             # Parse the JSON response

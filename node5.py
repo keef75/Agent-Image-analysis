@@ -293,7 +293,7 @@ Your goal is to demonstrate RESPONSIBLE AI that knows when to admit uncertainty 
 
             # Call OpenAI API with JSON object output
             response = self.client.chat.completions.create(
-                model="gpt-4o",
+                model="gpt-5",
                 messages=[
                     {
                         "role": "user",
@@ -302,8 +302,7 @@ Your goal is to demonstrate RESPONSIBLE AI that knows when to admit uncertainty 
                         ]
                     }
                 ],
-                response_format={"type": "json_object"},
-                temperature=0.0
+                response_format={"type": "json_object"}
             )
 
             # Parse the JSON response

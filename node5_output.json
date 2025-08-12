@@ -4,80 +4,74 @@
     {
       "node_id": "node1",
       "approach": "Dimensional structure analysis",
-      "key_finding": "Dimensional analysis suggests a 4x4x3 cuboid with 48 total cubes.",
-      "confidence": 0.95,
+      "key_finding": "Dimensional analysis of a 4\u00d74\u00d74 cube with a stepped cut-out, claiming 64 total cubes.",
+      "confidence": 0.86,
       "supports_answer": null,
-      "reliability_assessment": "High confidence (0.95) but contradicted by other nodes."
+      "reliability_assessment": "Moderate"
     },
     {
       "node_id": "node2",
       "approach": "Systematic counting",
-      "key_finding": "Systematic counting found 13 visible cubes.",
-      "confidence": 0.58,
+      "key_finding": "Systematic counting of 54 visible cubes.",
+      "confidence": 0.78,
       "supports_answer": null,
-      "reliability_assessment": "Moderate confidence (0.58) and significantly lower count than Node 1."
+      "reliability_assessment": "Moderate"
     },
     {
       "node_id": "node3",
       "approach": "Void pattern analysis",
-      "key_finding": "Geometric analysis found 7 missing cubes due to a diagonal void pattern.",
+      "key_finding": "Geometric analysis identifying 9 missing cubes due to a stepped cut-out.",
       "confidence": 0.95,
       "supports_answer": null,
-      "reliability_assessment": "High confidence (0.95) but does not align with Node 1's total."
+      "reliability_assessment": "High"
     },
     {
       "node_id": "node4",
       "approach": "Cross-verification",
-      "key_finding": "Identified severe contradictions and recommended human review.",
-      "confidence": 0.42,
+      "key_finding": "Cross-verification highlighting a 28-cube discrepancy and recommending human review.",
+      "confidence": 0.984375,
       "supports_answer": null,
-      "reliability_assessment": "Critical system health and low agreement level (0.42)."
+      "reliability_assessment": "High"
     }
   ],
   "contradiction_summary": [
     {
       "contradiction_type": "Total Structure Size Disagreement",
       "conflicting_claims": [
-        "Node1 total: 48",
-        "Node2+Node3 implied total: 20"
+        "Node1 total: 64",
+        "Node2+Node3 implied total: 63"
       ],
-      "magnitude": 28.0,
-      "resolvability": "None identified; contradictions are fundamental and severe.",
-      "impact_on_answer": "Final confidence should be low due to unresolved contradictions and poor agreement."
+      "magnitude": 1.0,
+      "resolvability": "None identified; major contradictions remain.",
+      "impact_on_answer": "Significant reduction in confidence due to unresolved contradictions."
     }
   ],
   "uncertainty_analysis": {
     "individual_node_confidences": {
-      "node1": 0.95,
-      "node2": 0.58,
+      "node1": 0.86,
+      "node2": 0.78,
       "node3": 0.95
     },
-    "cross_node_agreement": 0.41666666666666663,
-    "calibration_quality": "POORLY_CALIBRATED: High confidence but low agreement",
-    "uncertainty_sources": [
-      "Discrepancies in cube counting methods.",
-      "High confidence in individual nodes not translating to overall agreement.",
-      "Potential errors in dimensional and geometric analyses."
-    ],
+    "cross_node_agreement": 0.984375,
+    "calibration_quality": "REASONABLE: Confidence roughly matches agreement",
+    "uncertainty_sources": [],
     "appropriate_confidence_range": [
-      0.22,
-      0.62
+      0.78,
+      1.0
     ]
   },
   "responsible_answer": {
     "answer_type": "DEFER_TO_HUMAN",
     "primary_answer": null,
     "confidence_range": null,
-    "system_confidence": 0.41666666666666663,
-    "reasoning_transparency": "Contradictions were identified and acknowledged without resolution, leading to a recommendation for human intervention.",
+    "system_confidence": 0.984375,
+    "reasoning_transparency": "Acknowledged major discrepancies and deferred to human review.",
     "limitations_acknowledged": [
-      "Discrepancies in cube counting methods.",
-      "High confidence in individual nodes not translating to overall agreement.",
-      "Potential errors in dimensional and geometric analyses."
+      "Severe contradictions across nodes"
     ],
     "human_guidance_needed": true,
     "next_steps_recommended": [
-      "Defer to human judgment and suggest additional verification methods."
+      "Defer to human judgment due to significant contradictions."
     ]
   },
   "meta_learning": {
@@ -104,5 +98,5 @@
       "key_improvement": "Learned when NOT to be confident"
     }
   },
-  "federation_performance_assessment": "Redundant reasoning was effective in identifying contradictions but not in resolving them."
+  "federation_performance_assessment": "Effective in detecting errors but not in resolving them."
 }

@@ -4,88 +4,109 @@
     {
       "x": 1,
       "y": 1,
-      "z": 1,
-      "confidence": 0.9,
-      "evidence": "Visible internal face"
-    },
-    {
-      "x": 2,
-      "y": 2,
-      "z": 1,
-      "confidence": 0.9,
-      "evidence": "Visible internal face"
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "z": 1,
-      "confidence": 0.9,
-      "evidence": "Visible internal face"
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "z": 2,
-      "confidence": 0.9,
-      "evidence": "Visible internal face"
-    },
-    {
-      "x": 2,
-      "y": 3,
-      "z": 2,
-      "confidence": 0.9,
-      "evidence": "Visible internal face"
-    },
-    {
-      "x": 3,
-      "y": 1,
-      "z": 2,
-      "confidence": 0.9,
-      "evidence": "Visible internal face"
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
     },
     {
       "x": 2,
       "y": 1,
       "z": 3,
-      "confidence": 0.9,
-      "evidence": "Visible internal face"
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 3,
+      "confidence": 0.95,
+      "evidence": "Visible striped area"
     }
   ],
-  "void_pattern_type": "Diagonal void pattern",
-  "missing_cube_count": 7,
+  "void_pattern_type": "stepped_cut-out",
+  "missing_cube_count": 9,
   "pattern_confidence": 0.95,
   "geometric_constraints": [
     {
-      "constraint_type": "layer_completeness",
-      "description": "Each layer should have 9, 3, 1 cubes respectively",
-      "supports_node1": false,
-      "supports_node2": true,
-      "alternative_hypothesis": "3x3x3 structure with missing cubes"
+      "constraint_type": "layer_count",
+      "description": "Each layer should have 16 cubes if complete.",
+      "supports_node1": true,
+      "supports_node2": false,
+      "alternative_hypothesis": "Layer pattern suggests missing cubes in top layer."
+    },
+    {
+      "constraint_type": "void_symmetry",
+      "description": "Symmetrical voids in top layer indicate a stepped pattern.",
+      "supports_node1": true,
+      "supports_node2": false,
+      "alternative_hypothesis": "Stepped pattern aligns with Node 1's claim."
     }
   ],
   "node_contradiction_analysis": {
     "node1_vs_node2": {
-      "node1_claimed_total": 48,
-      "node2_visible": 13,
-      "node1_implied_missing": 35,
-      "consistency": "INCONSISTENT"
+      "node1_claimed_total": 64,
+      "node2_visible": 54,
+      "node1_implied_missing": 10,
+      "consistency": "QUESTIONABLE"
     },
     "node1_vs_node3": {
-      "node1_claimed_total": 48,
-      "node3_implied_total": 20,
-      "difference": 28,
+      "node1_claimed_total": 64,
+      "node3_implied_total": 63,
+      "difference": 1,
       "consistency": "INCONSISTENT"
     },
     "node2_vs_node3": {
-      "node2_visible": 13,
-      "node3_missing": 7,
-      "node3_implied_total": 20,
+      "node2_visible": 54,
+      "node3_missing": 9,
+      "node3_implied_total": 63,
       "layer_pattern_match": true
     },
     "three_way_analysis": {
       "all_agree": false,
-      "majority_view": "Node 3 suggests different total: 20 vs Node 1's 48",
-      "confidence_weighted_recommendation": "Highest confidence analysis: node1 (0.95)"
+      "majority_view": "Node 3 suggests different total: 63 vs Node 1's 64",
+      "confidence_weighted_recommendation": "Highest confidence analysis: node3 (0.95)"
     }
   },
   "corrected_structure_hypothesis": {}

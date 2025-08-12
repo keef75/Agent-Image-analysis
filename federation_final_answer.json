@@ -3,8 +3,8 @@
   "answer_type": "DEFER_TO_HUMAN",
   "primary_answer": null,
   "confidence_range": null,
-  "system_confidence": 0.41666666666666663,
-  "reasoning": "Contradictions were identified and acknowledged without resolution, leading to a recommendation for human intervention.",
+  "system_confidence": 0.984375,
+  "reasoning": "Acknowledged major discrepancies and deferred to human review.",
   "human_guidance_needed": true,
-  "federation_performance": "Redundant reasoning was effective in identifying contradictions but not in resolving them."
+  "federation_performance": "High consensus - reliable analysis"
 }

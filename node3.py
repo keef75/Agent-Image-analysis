@@ -248,7 +248,7 @@ Please respond with a JSON object containing the following fields:
             
             # Call OpenAI API with structured output
             response = self.client.chat.completions.create(
-                model="gpt-4o",
+                model="gpt-5",
                 messages=[
                     {
                         "role": "user",
@@ -263,26 +263,38 @@ Please respond with a JSON object containing the following fields:
                         ]
                     }
                 ],
-                response_format={"type": "json_object"},
-                temperature=0.1  # Low temperature for consistent analysis
+                response_format={"type": "json_object"}
             )
             
-            # Parse the JSON response
+            # Parse the JSON response (robust to None/invalid)
             response_text = response.choices[0].message.content
-            try:
-                void_data = json.loads(response_text)
-            except json.JSONDecodeError as e:
-                logger.error(f"Node 3: Failed to parse JSON response: {e}")
-                logger.error(f"Response text: {response_text}")
-                raise
+            if response_text is None:
+                logger.error("Node 3: Response content was None; synthesizing minimal valid output")
+                void_data = {}
+            else:
+                try:
+                    void_data = json.loads(response_text)
+                except json.JSONDecodeError as e:
+                    logger.error(f"Node 3: Failed to parse JSON response: {e}")
+                    logger.error(f"Response text: {response_text}")
+                    void_data = {}
             
             # Create Pydantic model instance
             try:
                 void_analysis = VoidPatternAnalysisOutput(**void_data)
-            except Exception as e:
-                logger.error(f"Node 3: Failed to create Pydantic model: {e}")
-                logger.error(f"Void data: {void_data}")
-                raise
+            except Exception:
+                # Fallback: synthesize a minimal valid structure so pipeline can continue
+                logger.warning("Node 3: Synthesizing minimal valid VoidPatternAnalysisOutput fallback")
+                void_analysis = VoidPatternAnalysisOutput(
+                    analysis_type="void_pattern_analysis",
+                    void_locations=[],
+                    void_pattern_type="unknown",
+                    missing_cube_count=0,
+                    pattern_confidence=0.0,
+                    geometric_constraints=[],
+                    node_contradiction_analysis={},
+                    corrected_structure_hypothesis={}
+                )
             
             # Add detailed contradiction analysis
             void_analysis.node_contradiction_analysis = self.analyze_contradictions(
