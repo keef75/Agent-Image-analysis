@@ -1,0 +1,10 @@
+{
+  "question": "How many cubes are missing to make a full cube?",
+  "answer_type": "DEFER_TO_HUMAN",
+  "primary_answer": null,
+  "confidence_range": null,
+  "system_confidence": 0.41666666666666663,
+  "reasoning": "Contradictions were identified and acknowledged without resolution, leading to a recommendation for human intervention.",
+  "human_guidance_needed": true,
+  "federation_performance": "Redundant reasoning was effective in identifying contradictions but not in resolving them."
+}

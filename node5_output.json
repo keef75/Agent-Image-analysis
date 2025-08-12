@@ -1,0 +1,108 @@
+{
+  "analysis_type": "consensus_synthesis",
+  "evidence_summary": [
+    {
+      "node_id": "node1",
+      "approach": "Dimensional structure analysis",
+      "key_finding": "Dimensional analysis suggests a 4x4x3 cuboid with 48 total cubes.",
+      "confidence": 0.95,
+      "supports_answer": null,
+      "reliability_assessment": "High confidence (0.95) but contradicted by other nodes."
+    },
+    {
+      "node_id": "node2",
+      "approach": "Systematic counting",
+      "key_finding": "Systematic counting found 13 visible cubes.",
+      "confidence": 0.58,
+      "supports_answer": null,
+      "reliability_assessment": "Moderate confidence (0.58) and significantly lower count than Node 1."
+    },
+    {
+      "node_id": "node3",
+      "approach": "Void pattern analysis",
+      "key_finding": "Geometric analysis found 7 missing cubes due to a diagonal void pattern.",
+      "confidence": 0.95,
+      "supports_answer": null,
+      "reliability_assessment": "High confidence (0.95) but does not align with Node 1's total."
+    },
+    {
+      "node_id": "node4",
+      "approach": "Cross-verification",
+      "key_finding": "Identified severe contradictions and recommended human review.",
+      "confidence": 0.42,
+      "supports_answer": null,
+      "reliability_assessment": "Critical system health and low agreement level (0.42)."
+    }
+  ],
+  "contradiction_summary": [
+    {
+      "contradiction_type": "Total Structure Size Disagreement",
+      "conflicting_claims": [
+        "Node1 total: 48",
+        "Node2+Node3 implied total: 20"
+      ],
+      "magnitude": 28.0,
+      "resolvability": "None identified; contradictions are fundamental and severe.",
+      "impact_on_answer": "Final confidence should be low due to unresolved contradictions and poor agreement."
+    }
+  ],
+  "uncertainty_analysis": {
+    "individual_node_confidences": {
+      "node1": 0.95,
+      "node2": 0.58,
+      "node3": 0.95
+    },
+    "cross_node_agreement": 0.41666666666666663,
+    "calibration_quality": "POORLY_CALIBRATED: High confidence but low agreement",
+    "uncertainty_sources": [
+      "Discrepancies in cube counting methods.",
+      "High confidence in individual nodes not translating to overall agreement.",
+      "Potential errors in dimensional and geometric analyses."
+    ],
+    "appropriate_confidence_range": [
+      0.22,
+      0.62
+    ]
+  },
+  "responsible_answer": {
+    "answer_type": "DEFER_TO_HUMAN",
+    "primary_answer": null,
+    "confidence_range": null,
+    "system_confidence": 0.41666666666666663,
+    "reasoning_transparency": "Contradictions were identified and acknowledged without resolution, leading to a recommendation for human intervention.",
+    "limitations_acknowledged": [
+      "Discrepancies in cube counting methods.",
+      "High confidence in individual nodes not translating to overall agreement.",
+      "Potential errors in dimensional and geometric analyses."
+    ],
+    "human_guidance_needed": true,
+    "next_steps_recommended": [
+      "Defer to human judgment and suggest additional verification methods."
+    ]
+  },
+  "meta_learning": {
+    "federation_effectiveness": {
+      "error_detection": "SUCCESSFUL - Node 4 caught major contradictions",
+      "uncertainty_calibration": "IMPROVED - System properly acknowledged limits",
+      "overconfidence_prevention": "SUCCESSFUL - Avoided confident wrong answer",
+      "transparency": "HIGH - Clear reasoning trace provided"
+    },
+    "individual_vs_federated_performance": {
+      "individual_node_issues": "All confident but conflicting answers",
+      "federation_benefit": "Detected contradictions and deferred appropriately",
+      "reliability_improvement": "Prevented overconfident incorrect answer"
+    },
+    "lessons_learned": [
+      "Multiple reasoning approaches can all fail while being confident",
+      "Contradiction detection is more valuable than perfect answers",
+      "Proper uncertainty acknowledgment prevents harmful overconfidence",
+      "Federation creates humility through redundancy and cross-checking"
+    ],
+    "confidence_calibration_insights": {
+      "before_federation": "Individual nodes: high confidence, wrong answers",
+      "after_federation": "System: appropriate uncertainty, honest limitations",
+      "key_improvement": "Learned when NOT to be confident"
+    }
+  },
+  "federation_performance_assessment": "Redundant reasoning was effective in identifying contradictions but not in resolving them."
+}
